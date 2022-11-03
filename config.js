@@ -8,9 +8,9 @@ module.exports = {
 		password: process.env.REDIS_PASSWORD,
 		db: process.env.REDIS_DATABASE_INDEX || 0,
 	},
-    queue : {
-        queue_size: process.env.QUEUE_SUM || 100,
-        message_size: process.env.MESSAGE_SIZE || 1000 
-    }
-	
+	queue: {
+		queue_size: process.env.QUEUE_SUM || 100,
+		message_size: process.env.MESSAGE_SIZE || 1000,
+	},
+
 };

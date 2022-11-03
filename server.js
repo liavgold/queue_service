@@ -1,8 +1,7 @@
 const app = require( './app' );
 const config = require( './config' );
 
-const port = config.port;
+const { port } = config;
 
 app.listen( port );
 console.info( `Server running on port ${port}` );
-

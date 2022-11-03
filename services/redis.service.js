@@ -1,7 +1,6 @@
-const { createClient } = require( "redis" );
-const { promisify } = require( "util" );
+const { createClient } = require( 'redis' );
+const { promisify } = require( 'util' );
 const { redis } = require( '../config' );
-const config = require( "../config" );
 
 const client = createClient( {
 	host: redis.host,
@@ -16,13 +15,13 @@ const clientDeleteAsync = promisify( client.del ).bind( client );
 
 const getAsync = async ( key ) => {
 	const objectData = await clientGetAsync( key );
-	if ( ! objectData ) {
+	if ( !objectData ) {
 		return;
 	}
 	return JSON.parse( objectData );
 };
 
-const setAsync = async ( key, value, expired_after_minutes = config.redis.expired_after_minutes ) => {
+const setAsync = async ( key, value ) => {
 	const result = await clientSetAsync( key, JSON.stringify( value ) );
 	return result;
 };
@@ -38,4 +37,4 @@ module.exports = {
 	setAsync,
 	delAsync,
 	close,
-}
+};

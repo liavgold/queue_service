@@ -13,7 +13,7 @@ const pullMessage = async ( req, res, next ) => {
 
 const acknowledgeMessage = async ( req, res, next ) => {
 	const { topic } = req.params;
-	next( await delMessage(topic).catch( next ) );
+	next( await delMessage( topic ).catch( next ) );
 };
 
 module.exports = {
